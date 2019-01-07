@@ -1,20 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { faTimesCircle, faChevronCircleDown } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
-library.add(faTimesCircle, faChevronCircleDown)
+import DeleteButton from './DeleteButton'
+import StatusButton from './StatusButton'
 
 const Task = ({ task }) => (
 	<div id="task">
 		<div>
-			<span>
-				<FontAwesomeIcon icon="times-circle" color="#FDEDEC" />
-			</span>
-			<span>
-        <FontAwesomeIcon icon="chevron-circle-down" color="#EBF5FB" />
-			</span>
+			<DeleteButton />
+			<StatusButton />
 		</div>
 		<div>
 			<p>{task}</p>
