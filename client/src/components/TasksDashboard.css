@@ -1,0 +1,44 @@
+h3 {
+  padding-left: 20px;
+}
+
+#dashboard > div {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 1.5rem;
+}
+
+#dashboard > div > div {
+  text-align: center;
+  background-color: rgb(236, 236, 236);
+  height: 100vh;
+}
+
+/* Task */
+
+#task {
+  background-color: #fff;
+  height: 70px;
+  width: 80%;
+  margin: 15px auto 10px;
+  border-radius: 5px;
+}
+
+#task > div:first-child {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+}
+
+#task > div > span {
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+}
+
+#task > div > p {
+  margin: 0;
+  padding: 0;
+  font-size: 1.5em;
+  letter-spacing: 0.02em;
+}
