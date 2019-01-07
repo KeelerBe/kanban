@@ -1,17 +1,15 @@
 import React from 'react'
-import TodoList from './TodoList'
-import DoingList from './DoingList'
-import DoneList from './DoneList'
+import PropTypes from 'prop-types'
 import './TasksDashboard.css'
 
-const TasksDashboard = () => 
+const TasksDashboard = ({ children }) => 
   <div id="dashboard">
     <h3>New +</h3>
-    <div>
-      <TodoList />
-      <DoingList />
-      <DoneList />
-    </div>
+    {children}
   </div>
+
+TasksDashboard.propTypes = {
+  children: PropTypes.node.isRequired
+}
 
 export default TasksDashboard

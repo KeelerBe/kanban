@@ -14,4 +14,19 @@
     "task": "Make a mojito",
     "status": "todo"
   },
+  {
+    "id": "da5c6c67-e64c-43aa-af00-54d00834d5cf",
+    "task": "Frame BFF",
+    "status": "doing"
+  },
+  {
+    "id": "546810f9-7582-443b-aa8d-877ea208ec3b",
+    "task": "Update portfolio",
+    "status": "doing"
+  },
+  {
+    "id": "7e896ae1-4165-4efc-bb06-45f019c962df",
+    "task": "Make bed",
+    "status": "done"
+  }
 ]
