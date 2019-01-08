@@ -3,10 +3,10 @@ import PropTypes from 'prop-types'
 import DeleteButton from './DeleteButton'
 import StatusButton from './StatusButton'
 
-const Task = ({ task }) => (
+const Task = ({ task, onDelete }) => (
 	<div id="task">
 		<div>
-			<DeleteButton />
+			<DeleteButton onDelete={onDelete} />
 			<StatusButton />
 		</div>
 		<div>
@@ -16,7 +16,8 @@ const Task = ({ task }) => (
 )
 
 Task.propTypes = {
-	task: PropTypes.string.isRequired
+	task: PropTypes.string.isRequired,
+	onDelete: PropTypes.func.isRequired
 }
 
 export default Task

@@ -1,16 +1,21 @@
-h3 {
-  padding-left: 20px;
+#dashboard > i {
+  padding: 20px 0 10px 30px;
+  color: #FDFEFE;
+  font-size: 30px;
 }
 
 #dashboard > div {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  padding: 0 10px;
 }
 
 #dashboard > div > div {
   text-align: center;
   background-color: #EAECEE;
-  height: 100vh;
+  height: 85vh;
+  margin: 15px;
+  border-radius: 5px;
 }
 
 /* Task */

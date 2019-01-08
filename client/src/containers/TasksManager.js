@@ -13,14 +13,31 @@ class TasksManager extends Component {
     this.setState({ tasks: _TASKS })
   }
 
+  handleDelete = (taskId) => {
+    const tasks = this.state.tasks.filter((task) => task.id !== taskId)
+    this.setState({ tasks })
+  }
+
   render() {
     const { todoList, doingList, doneList } = filterByStatus(this.state.tasks)
     return (
       <TasksDashboard>
         <div>
-          <Tasks title="To Do" tasks={todoList} />
-          <Tasks title="Doing" tasks={doingList} />
-          <Tasks title="Done" tasks={doneList} />
+          <Tasks 
+            title="To Do" 
+            tasks={todoList} 
+            onDelete={this.handleDelete} 
+          />
+          <Tasks 
+            title="Doing" 
+            tasks={doingList} 
+            onDelete={this.handleDelete} 
+          />
+          <Tasks 
+            title="Done" 
+            tasks={doneList} 
+            onDelete={this.handleDelete} 
+          />
         </div>
       </TasksDashboard>
     )

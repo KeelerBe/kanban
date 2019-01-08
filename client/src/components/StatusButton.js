@@ -13,7 +13,7 @@ const styles = {
 
 const StatusButton = ({ classes, onStatus }) => (
 	<span onClick={onStatus} className={classes.statusButton}>
-		<i class="fas fa-chevron-circle-down" />
+		<i className="fas fa-chevron-circle-down" />
 	</span>
 )
 

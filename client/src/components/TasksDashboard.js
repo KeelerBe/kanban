@@ -2,11 +2,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import './TasksDashboard.css'
 
-const TasksDashboard = ({ children }) => 
-  <div id="dashboard">
-    <h3>New +</h3>
-    {children}
-  </div>
+const TasksDashboard = ({ children }) => (
+	<div id="dashboard">
+    <i className="fas fa-plus"></i>
+		{children}
+	</div>
+)
 
 TasksDashboard.propTypes = {
   children: PropTypes.node.isRequired
