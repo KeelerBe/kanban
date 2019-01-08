@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import DeleteButton from './DeleteButton'
 import StatusButton from './StatusButton'
+import TaskInput from './TaskInput'
 
 const Task = ({ task, onDelete }) => (
 	<div id="task">
@@ -10,7 +11,7 @@ const Task = ({ task, onDelete }) => (
 			<StatusButton />
 		</div>
 		<div>
-			<p>{task}</p>
+			<TaskInput task={task} />
 		</div>
 	</div>
 )

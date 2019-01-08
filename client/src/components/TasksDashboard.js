@@ -1,16 +1,29 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import './TasksDashboard.css'
+import injectSheet from 'react-jss'
 
-const TasksDashboard = ({ children }) => (
+const styles = {
+	addButton: {
+		color: '#999',
+		'&:hover': {
+			color: '#FDFEFE'
+		}
+	}
+}
+
+const TasksDashboard = ({ classes, children, onAdd }) => (
 	<div id="dashboard">
-    <i className="fas fa-plus"></i>
+		<span className={classes.addButton}>
+			<i className="fas fa-plus" onClick={onAdd} />
+		</span>
 		{children}
 	</div>
 )
 
 TasksDashboard.propTypes = {
+	classes: PropTypes.object.isRequired,
   children: PropTypes.node.isRequired
 }
 
-export default TasksDashboard
+export default injectSheet(styles)(TasksDashboard)

@@ -18,10 +18,14 @@ class TasksManager extends Component {
     this.setState({ tasks })
   }
 
+  handleAdd = () => {
+    console.log('Adding...')
+  }
+
   render() {
     const { todoList, doingList, doneList } = filterByStatus(this.state.tasks)
     return (
-      <TasksDashboard>
+      <TasksDashboard onAdd={this.handleAdd} >
         <div>
           <Tasks 
             title="To Do" 

@@ -1,13 +1,13 @@
-#dashboard > i {
-  padding: 20px 0 10px 30px;
-  color: #FDFEFE;
+#dashboard > span {
+  display: inline-block;
+  padding: 20px 0 0 30px;
   font-size: 30px;
 }
 
 #dashboard > div {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  padding: 0 10px;
+  padding: 5px 10px 0;
 }
 
 #dashboard > div > div {
@@ -41,16 +41,30 @@
 
 }
 
-#task > div > p {
-  margin: 0;
-  padding: 0;
-  font-size: 1.2em;
-  letter-spacing: 0.02em;
-}
-
-/* #task > div > input {
+/* #task > div > p {
   margin: 0;
   padding: 0;
   font-size: 1.2em;
   letter-spacing: 0.02em;
 } */
+
+/* Task Input */
+
+#task > div > form > input {
+  width: 280px;
+  margin: 5px 0 0 0;
+  padding: 5px 0 0 0;
+  font-size: 1.2em;
+  letter-spacing: 0.02em;
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+}
+
+#task > div > form > input:focus {
+  background-color: #EAECEE;
+  outline: none;
+}
+
+
+

@@ -13,7 +13,7 @@ const styles = {
 
 const DeleteButton = ({ classes, onDelete }) => (
   <span onClick={onDelete} className={classes.deleteButton}>
-    <i className="fas fa-times-circle"></i>
+    <i className="fas fa-times-circle" />
 	</span>
 )
 
