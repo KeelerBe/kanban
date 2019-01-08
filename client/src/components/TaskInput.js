@@ -31,6 +31,7 @@ class TaskInput extends Component {
           ref={this.textInput}
           type="text"
           maxLength={25}
+          autoFocus={true}
         />
       </form>
     )
