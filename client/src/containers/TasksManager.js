@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import uuidv4 from 'uuid/v4'
 import TasksDashboard from '../components/TasksDashboard'
 import Tasks from '../components/Tasks'
 import _TASKS from '../tasks.json'
@@ -19,7 +20,23 @@ class TasksManager extends Component {
   }
 
   handleAdd = () => {
-    console.log('Adding...')
+    const task = {
+      id: uuidv4(),
+      title: "",
+      status: "todo"
+    }
+
+    const tasks = [ ...this.state.tasks, task ]
+    this.setState({ tasks })
+  }
+
+  handleSubmit = (taskId, newTitle) => {
+    const tasks = this.state.tasks.map((task) => {
+      if (task.id !== taskId) return task
+      task.title = newTitle
+      return task
+    })
+    this.setState({ tasks })
   }
 
   render() {
@@ -28,19 +45,22 @@ class TasksManager extends Component {
       <TasksDashboard onAdd={this.handleAdd} >
         <div>
           <Tasks 
-            title="To Do" 
+            heading="To Do" 
             tasks={todoList} 
-            onDelete={this.handleDelete} 
+            onDelete={this.handleDelete}
+            onSubmit={this.handleSubmit} 
           />
           <Tasks 
-            title="Doing" 
+            heading="Doing" 
             tasks={doingList} 
-            onDelete={this.handleDelete} 
+            onDelete={this.handleDelete}
+            onSubmit={this.handleSubmit} 
           />
           <Tasks 
-            title="Done" 
+            heading="Done" 
             tasks={doneList} 
-            onDelete={this.handleDelete} 
+            onDelete={this.handleDelete}
+            onSubmit={this.handleSubmit} 
           />
         </div>
       </TasksDashboard>

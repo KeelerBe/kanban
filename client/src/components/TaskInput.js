@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 
 class TaskInput extends Component {
   state = {
-    value: this.props.task || '',
-    focused: false,
+    value: this.props.task.title || ''
   }
 
   textInput = React.createRef()
@@ -14,7 +14,10 @@ class TaskInput extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    this.setState({ value: this.state.value})
+    this.props.onSubmit(
+      this.props.task.id,
+      this.state.value
+    )
     this.textInput.current.blur()
   }
 
@@ -32,6 +35,15 @@ class TaskInput extends Component {
       </form>
     )
   }
+}
+
+TaskInput.propTypes = {
+  task: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired
+  }).isRequired,
+  onSubmit: PropTypes.func.isRequired
+
 }
 
 export default TaskInput

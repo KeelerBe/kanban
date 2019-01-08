@@ -23,7 +23,8 @@ const TasksDashboard = ({ classes, children, onAdd }) => (
 
 TasksDashboard.propTypes = {
 	classes: PropTypes.object.isRequired,
-  children: PropTypes.node.isRequired
+	children: PropTypes.node.isRequired,
+	onAdd: PropTypes.func.isRequired
 }
 
 export default injectSheet(styles)(TasksDashboard)

@@ -1,32 +1,32 @@
 [
   {
     "id": "e1457c49-f19d-431c-a2e1-e304abeb5e58",
-    "task": "Launder Money",
+    "title": "Launder Money",
     "status": "todo"
   },
   {
     "id": "583a4ec0-0e7a-41c3-8e09-8aa4c5a42e97",
-    "task": "Shred documents",
+    "title": "Shred documents",
     "status": "todo"
   },
   {
     "id": "0f9052b1-4a5e-419d-8dbf-1ac3fb63c2f7",
-    "task": "Make a mojito",
+    "title": "Make a mojito",
     "status": "todo"
   },
   {
     "id": "da5c6c67-e64c-43aa-af00-54d00834d5cf",
-    "task": "Frame BFF",
+    "title": "Frame BFF",
     "status": "doing"
   },
   {
     "id": "546810f9-7582-443b-aa8d-877ea208ec3b",
-    "task": "Update portfolio",
+    "title": "Update portfolio",
     "status": "doing"
   },
   {
     "id": "7e896ae1-4165-4efc-bb06-45f019c962df",
-    "task": "Make bed",
+    "title": "Make bed",
     "status": "done"
   }
 ]

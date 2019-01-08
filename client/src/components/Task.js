@@ -4,21 +4,22 @@ import DeleteButton from './DeleteButton'
 import StatusButton from './StatusButton'
 import TaskInput from './TaskInput'
 
-const Task = ({ task, onDelete }) => (
+const Task = ({ task, onDelete, onSubmit }) => (
 	<div id="task">
 		<div>
 			<DeleteButton onDelete={onDelete} />
 			<StatusButton />
 		</div>
 		<div>
-			<TaskInput task={task} />
+			<TaskInput task={task} onSubmit={onSubmit} />
 		</div>
 	</div>
 )
 
 Task.propTypes = {
-	task: PropTypes.string.isRequired,
-	onDelete: PropTypes.func.isRequired
+	task: PropTypes.object.isRequired,
+	onDelete: PropTypes.func.isRequired,
+	onSubmit: PropTypes.func.isRequired
 }
 
 export default Task
