@@ -23,7 +23,7 @@ class TasksManager extends Component {
     axios.delete('/api/tasks', {
       data: { id: taskId }
     })
-    .then((res) => console.log(res.data))
+    .then((res) => console.log(res.data.success))
     .catch((err) => console.log(err))
 
     const tasks = this.state.tasks.filter((task) => task.id !== taskId)
@@ -36,6 +36,10 @@ class TasksManager extends Component {
       title: "",
       status: "todo"
     }
+
+    axios.post('/api/tasks', { task })
+      .then((res) => console.log(res.data.success))
+      .catch((err) => console.log(err))
 
     const tasks = [ ...this.state.tasks, task ]
     this.setState({ tasks })

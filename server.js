@@ -18,12 +18,23 @@ app.get('/api/tasks', (req, res) => {
 	})
 })
 
+app.post('/api/tasks', (req, res) => {
+  fs.readFile(DATA_FILE, (err, data) => {
+    const { task } = req.body
+    const tasks = JSON.parse(data)
+    tasks.push(task)
+    fs.writeFile(DATA_FILE, JSON.stringify(tasks, null, 2), () => {
+      res.json({ success: 'New card added.' })
+    })
+  })
+})
+
 app.delete('/api/tasks', (req, res) => {
   fs.readFile(DATA_FILE, (err, data) => {
     const tasks =  JSON.parse(data)
     const filteredTasks = tasks.filter((task) => task.id !== req.body.id)
     fs.writeFile(DATA_FILE, JSON.stringify(filteredTasks, null, 2), () => {
-      res.json({})
+      res.json({ success: 'Task deleted.' })
     })
   })
 })
