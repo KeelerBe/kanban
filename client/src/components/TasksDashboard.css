@@ -26,6 +26,7 @@
   width: 80%;
   margin: 15px auto 10px;
   border-radius: 5px;
+  box-shadow: 0px 4px 6px -2px #808080c2;
 }
 
 #task > div:first-child {
