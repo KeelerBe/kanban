@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import uuidv4 from 'uuid/v4'
 import TasksDashboard from '../components/TasksDashboard'
 import Tasks from '../components/Tasks'
-import _TASKS from '../tasks.json'
+import axios from 'axios'
 import { filterByStatus } from '../helpers'
 
 class TasksManager extends Component {
@@ -11,7 +11,13 @@ class TasksManager extends Component {
   }
 
   componentDidMount() {
-    this.setState({ tasks: _TASKS })
+    axios
+			.get('/api/tasks')
+			.then((response) => {
+				const tasks = response.data
+				this.setState({ tasks })
+			})
+			.catch((err) => console.log(err))
   }
 
   handleDelete = (taskId) => {
