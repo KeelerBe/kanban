@@ -46,6 +46,13 @@ class TasksManager extends Component {
   }
 
   handleSubmit = (taskId, newTitle) => {
+    axios.put('/api/tasks', {
+      id: taskId,
+      title: newTitle
+    })
+      .then((res) => console.log(res.data.success))
+      .catch((err) => console.log(err))
+
     const tasks = this.state.tasks.map((task) => {
       if (task.id !== taskId) return task
       task.title = newTitle

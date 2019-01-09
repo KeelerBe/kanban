@@ -29,6 +29,21 @@ app.post('/api/tasks', (req, res) => {
   })
 })
 
+app.put('/api/tasks', (req, res) => {
+  fs.readFile(DATA_FILE, (err, data) => {
+    const tasks = JSON.parse(data)
+    tasks.map((task) => {
+      if (task.id !== req.body.id) return task
+
+      task.title = req.body.title
+      return task
+    })
+    fs.writeFile(DATA_FILE, JSON.stringify(tasks, null, 2), () => {
+      res.json({ success: 'Task updated.' })
+    })
+  })
+})
+
 app.delete('/api/tasks', (req, res) => {
   fs.readFile(DATA_FILE, (err, data) => {
     const tasks =  JSON.parse(data)

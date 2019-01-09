@@ -31,7 +31,12 @@
   },
   {
     "id": "74795653-fc7e-47bb-8a50-0e5bc3257755",
-    "title": "",
+    "title": "Bury the body",
+    "status": "todo"
+  },
+  {
+    "id": "ef811ee0-2a57-477e-a53a-2dc119a8b9ee",
+    "title": "Water plants",
     "status": "todo"
   }
 ]
