@@ -18,4 +18,14 @@ app.get('/api/tasks', (req, res) => {
 	})
 })
 
+app.delete('/api/tasks', (req, res) => {
+  fs.readFile(DATA_FILE, (err, data) => {
+    const tasks =  JSON.parse(data)
+    const filteredTasks = tasks.filter((task) => task.id !== req.body.id)
+    fs.writeFile(DATA_FILE, JSON.stringify(filteredTasks, null, 2), () => {
+      res.json({})
+    })
+  })
+})
+
 app.listen(port, () => console.log(`Listening on port ${port}...`.inverse))

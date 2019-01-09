@@ -11,16 +11,21 @@ class TasksManager extends Component {
   }
 
   componentDidMount() {
-    axios
-			.get('/api/tasks')
-			.then((response) => {
-				const tasks = response.data
+    axios.get('/api/tasks')
+			.then((res) => {
+				const tasks = res.data
 				this.setState({ tasks })
 			})
 			.catch((err) => console.log(err))
   }
 
   handleDelete = (taskId) => {
+    axios.delete('/api/tasks', {
+      data: { id: taskId }
+    })
+    .then((res) => console.log(res.data))
+    .catch((err) => console.log(err))
+
     const tasks = this.state.tasks.filter((task) => task.id !== taskId)
     this.setState({ tasks })
   }
