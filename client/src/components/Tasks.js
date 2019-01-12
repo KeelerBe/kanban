@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import Task from './Task'
 
 const Tasks = ({ heading, tasks, onDelete, onSubmit }) => 
-  <div id="tasks">
+  <div>
     <h1>{heading}</h1>
     {tasks.map((task) => 
       <Task 
