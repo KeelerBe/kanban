@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
-import uuidv4 from 'uuid/v4'
 import TasksDashboard from '../components/TasksDashboard'
 import Tasks from '../components/Tasks'
-import axios from 'axios'
-import { filterByStatus } from '../helpers'
+import helpers from '../utils/helpers'
+import client from '../utils/client'
 
 class TasksManager extends Component {
   state = { 
@@ -11,58 +10,38 @@ class TasksManager extends Component {
   }
 
   componentDidMount() {
-    axios.get('/api/tasks')
-			.then((res) => {
-				const tasks = res.data
-				this.setState({ tasks })
-			})
-			.catch((err) => console.log(err))
-  }
-
-  handleDelete = (taskId) => {
-    axios.delete('/api/tasks', {
-      data: { id: taskId }
-    })
-    .then((res) => console.log(res.data.success))
-    .catch((err) => console.log(err))
-
-    const tasks = this.state.tasks.filter((task) => task.id !== taskId)
-    this.setState({ tasks })
+    client.getTasks((tasks) => 
+      this.setState({ tasks }))
   }
 
   handleAdd = () => {
-    const task = {
-      id: uuidv4(),
-      title: "",
-      status: "todo"
-    }
-
-    axios.post('/api/tasks', { task })
-      .then((res) => console.log(res.data.success))
-      .catch((err) => console.log(err))
-
-    const tasks = [ ...this.state.tasks, task ]
+    const task = helpers.createTask()
+    const tasks = [...this.state.tasks, task]
+    
     this.setState({ tasks })
+    client.addTask(task)
+  }
+
+  handleDelete = (taskId) => {
+    const tasks = this.state.tasks.filter((task) => task.id !== taskId)
+    
+    this.setState({ tasks })
+    client.deleteTask(taskId)
   }
 
   handleSubmit = (taskId, newTitle) => {
-    axios.put('/api/tasks', {
-      id: taskId,
-      title: newTitle
-    })
-      .then((res) => console.log(res.data.success))
-      .catch((err) => console.log(err))
-
     const tasks = this.state.tasks.map((task) => {
       if (task.id !== taskId) return task
+      
       task.title = newTitle
       return task
     })
     this.setState({ tasks })
+    client.updateTask(taskId, newTitle)
   }
 
   render() {
-    const { todoList, doingList, doneList } = filterByStatus(this.state.tasks)
+    const { todoList, doingList, doneList } = helpers.filterByStatus(this.state.tasks)
     return (
       <TasksDashboard onAdd={this.handleAdd} >
         <div>

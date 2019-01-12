@@ -1,4 +1,6 @@
-export const filterByStatus = (tasks) => {
+import uuidv4 from 'uuid/v4'
+
+const filterByStatus = (tasks) => {
   const todoList = []
   const doingList = []
   const doneList = []
@@ -14,4 +16,19 @@ export const filterByStatus = (tasks) => {
     doingList,
     doneList
   }
+}
+
+const createTask = () => {
+  const task = {
+    id: uuidv4(),
+    title: "",
+    status: "todo"
+  }
+
+  return task
+}
+
+export default {
+  filterByStatus,
+  createTask
 }
