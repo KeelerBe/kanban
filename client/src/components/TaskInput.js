@@ -8,6 +8,11 @@ class TaskInput extends Component {
 
   textInput = React.createRef()
 
+  componentDidMount() {
+    if (this.state.value === '') 
+      this.textInput.current.focus()
+  }
+
   handleChange = (e) => {
     this.setState({ value: e.target.value })
   }
@@ -31,7 +36,6 @@ class TaskInput extends Component {
           ref={this.textInput}
           type="text"
           maxLength={25}
-          autoFocus={true}
         />
       </form>
     )
