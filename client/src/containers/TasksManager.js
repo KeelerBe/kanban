@@ -3,6 +3,7 @@ import TasksDashboard from '../components/TasksDashboard'
 import Tasks from '../components/Tasks'
 import helpers from '../utils/helpers'
 import client from '../utils/client'
+// import _TASKS from '../tasks.json'
 
 class TasksManager extends Component {
   state = { 
