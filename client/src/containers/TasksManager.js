@@ -3,46 +3,75 @@ import TasksDashboard from '../components/TasksDashboard'
 import Tasks from '../components/Tasks'
 import helpers from '../utils/helpers'
 import client from '../utils/client'
-// import _TASKS from '../tasks.json'
 
 class TasksManager extends Component {
   state = { 
-    tasks: []
+    tasksById: {},
+    todoIds: [],
+    doingIds: [],
+    doneIds: []
   }
 
   componentDidMount() {
-    client.getTasks((tasks) => 
-      this.setState({ tasks }))
+    client.getTasks((tasks) => {
+      const { tasksById, todoIds, doingIds, doneIds } = tasks
+      this.setState({
+        tasksById,
+        todoIds,
+        doingIds,
+        doneIds
+      })
+    })
   }
 
   handleAdd = () => {
     const task = helpers.createTask()
-    const tasks = [...this.state.tasks, task]
+    const { tasksById, todoIds } = this.state
     
-    this.setState({ tasks })
-    client.addTask(task)
+    tasksById[task.id] = task
+    todoIds.push(task.id)
+
+    this.setState({ tasksById, todoIds })
+    // client.addTask(task)
   }
 
-  handleDelete = (taskId) => {
-    const tasks = this.state.tasks.filter((task) => task.id !== taskId)
-    
-    this.setState({ tasks })
-    client.deleteTask(taskId)
+  handleDelete = (taskId, heading) => {
+    const filteredTasks = 
+      Object.values(this.state.tasksById).filter((task) => 
+        task.id !== taskId)
+    const tasksById = helpers.createTasksObject(filteredTasks)
+    let { todoIds, doingIds, doneIds } = this.state
+
+    if (heading === "To Do") 
+      todoIds = todoIds.filter((id) => id !== taskId)
+
+    if (heading === "Doing") 
+      doingIds = doingIds.filter((id) => id !== taskId)
+
+    if (heading === "Done")
+      doneIds = doneIds.filter((id) => id !== taskId)
+
+    this.setState({ tasksById, todoIds, doingIds, doneIds })
+    // client.deleteTask(taskId)
   }
 
   handleSubmit = (taskId, newTitle) => {
-    const tasks = this.state.tasks.map((task) => {
+    const tasks = Object.values(this.state.tasksById).map((task) => {
       if (task.id !== taskId) return task
-      
+
       task.title = newTitle
-      return task
+			return task
     })
-    this.setState({ tasks })
-    client.updateTask(taskId, newTitle)
+
+    this.setState({ 
+      tasksById: helpers.createTasksObject(tasks)
+    })
+    
+    // client.updateTask(taskId, newTitle)
   }
 
   render() {
-    const { todoList, doingList, doneList } = helpers.filterByStatus(this.state.tasks)
+    const { todoList, doingList, doneList } = helpers.getLists(this.state)
     return (
       <TasksDashboard onAdd={this.handleAdd} >
         <div>

@@ -1,15 +1,9 @@
 import uuidv4 from 'uuid/v4'
 
-const filterByStatus = (tasks) => {
-  const todoList = []
-  const doingList = []
-  const doneList = []
-
-  tasks.forEach((task) => {
-    if (task.status === "todo") todoList.push(task)
-    if (task.status === "doing") doingList.push(task)
-    if (task.status === "done") doneList.push(task)
-  })
+const getLists = ({ tasksById, todoIds, doingIds, doneIds }) => {
+  const todoList = todoIds.map((todoId) => tasksById[todoId])
+  const doingList = doingIds.map((doingId) => tasksById[doingId])
+  const doneList = doneIds.map((doneId) => tasksById[doneId])
 
   return {
     todoList,
@@ -21,14 +15,26 @@ const filterByStatus = (tasks) => {
 const createTask = () => {
   const task = {
     id: uuidv4(),
-    title: "",
-    status: "todo"
+    title: ""
   }
 
   return task
 }
 
+// const getTaskList = (tasksObj) => {
+//   const taskList = Object.values(tasksObj).map((task) => task)
+//   return taskList
+// }
+
+const createTasksObject = (tasksArray) => {
+  const tasksById = {}
+  tasksArray.forEach((task) => tasksById[task.id] = task)
+  return tasksById
+}
+
 export default {
-  filterByStatus,
-  createTask
+  getLists,
+  createTask,
+  // getTaskList,
+  createTasksObject
 }

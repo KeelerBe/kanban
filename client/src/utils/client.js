@@ -4,7 +4,7 @@ const getTasks = (onSuccess) => {
   axios.get('/api/tasks')
     .then(checkStatus)
     .then((response) => onSuccess(response.data))
-    .catch(onError)
+    // .catch(onError)
 }
 
 const addTask = (task) => {

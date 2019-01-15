@@ -11,12 +11,12 @@ const Tasks = ({ heading, tasks, onDelete, onSubmit }) =>
         <div
           ref={provided.innerRef}
           {...provided.droppableProps}>
-          {tasks.map((task, index) =>
-            <Task
+          {tasks.map((task, index) => 
+           <Task
               key={task.id}
               index={index}
               task={task}
-              onDelete={() => onDelete(task.id)}
+              onDelete={() => onDelete(task.id, heading)}
               onSubmit={onSubmit}
             />
           )}
