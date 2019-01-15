@@ -13,12 +13,8 @@ const styles = {
 	}
 }
 
-const handleDragEnd = (result) => {
-	console.log(result)
-}
-
-const TasksDashboard = ({ classes, children, onAdd }) => 
-	<DragDropContext onDragEnd={handleDragEnd}>
+const TasksDashboard = ({ classes, children, onAdd, onDragEnd }) => 
+	<DragDropContext onDragEnd={onDragEnd}>
 		<div id="dashboard">
 			<span className={classes.addButton}>
 				<i className="fas fa-plus" onClick={onAdd} />
@@ -30,7 +26,8 @@ const TasksDashboard = ({ classes, children, onAdd }) =>
 TasksDashboard.propTypes = {
 	classes: PropTypes.object.isRequired,
 	children: PropTypes.node.isRequired,
-	onAdd: PropTypes.func.isRequired
+	onAdd: PropTypes.func.isRequired,
+	onDragEnd: PropTypes.func.isRequired
 }
 
 export default injectSheet(styles)(TasksDashboard)

@@ -1,9 +1,5 @@
 {
   "tasksById": {
-    "e1457c49-f19d-431c-a2e1-e304abeb5e58": {
-      "id": "e1457c49-f19d-431c-a2e1-e304abeb5e58",
-      "title": "Launder Money"
-    },
     "583a4ec0-0e7a-41c3-8e09-8aa4c5a42e97": {
       "id": "583a4ec0-0e7a-41c3-8e09-8aa4c5a42e97",
       "title": "Shred documents"
@@ -31,14 +27,18 @@
     "cdbf6cab-5f8a-4907-a36d-5e9322921daf": {
       "id": "cdbf6cab-5f8a-4907-a36d-5e9322921daf",
       "title": "Update portfolio"
+    },
+    "55e7de8d-c46b-4dd6-9a8d-f6ba6babc5b7": {
+      "id": "55e7de8d-c46b-4dd6-9a8d-f6ba6babc5b7",
+      "title": "Launder money"
     }
   },
   "todoIds": [
-    "e1457c49-f19d-431c-a2e1-e304abeb5e58",
     "583a4ec0-0e7a-41c3-8e09-8aa4c5a42e97",
     "0f9052b1-4a5e-419d-8dbf-1ac3fb63c2f7",
     "74795653-fc7e-47bb-8a50-0e5bc3257755",
-    "bcd2e785-1780-42c9-bda1-8c99ab4bdb62"
+    "bcd2e785-1780-42c9-bda1-8c99ab4bdb62",
+    "55e7de8d-c46b-4dd6-9a8d-f6ba6babc5b7"
   ],
   "doingIds": [
     "bfc95b90-6848-46b0-9b0a-be99ad111294",

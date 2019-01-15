@@ -1,3 +1,4 @@
+/*eslint-disable */
 import uuidv4 from 'uuid/v4'
 
 const getLists = ({ tasksById, todoIds, doingIds, doneIds }) => {
@@ -21,7 +22,25 @@ const createTask = () => {
   return task
 }
 
+const getColumn = (heading) => {
+  let column = ""
+  
+  switch (heading) {
+    case "To Do":
+      return column = "todoIds"
+    case "Doing":
+      return column = "doingIds"
+    case "Done":
+      return column = "doneIds"
+    default:
+      return column = null
+  }
+
+  return column
+}
+
 export default {
   getLists,
-  createTask
+  createTask,
+  getColumn
 }

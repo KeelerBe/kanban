@@ -36,30 +36,15 @@ class TasksManager extends Component {
   }
 
   handleDelete = (taskId, heading) => {
+    const column = helpers.getColumn(heading)
     const tasksById = {}
     Object.values(this.state.tasksById).forEach((task) => {
       if (task.id !== taskId) tasksById[task.id] = task
     })
 
-    let { todoIds, doingIds, doneIds } = this.state
-    let column = ""
+    const columnIds = Array.from(this.state[column]).filter((id) => id !== taskId)
 
-    if (heading === "To Do") {
-      todoIds = todoIds.filter((id) => id !== taskId)
-      column = "todoIds"
-    }
-
-    if (heading === "Doing") {
-      doingIds = doingIds.filter((id) => id !== taskId)
-      column = "doingIds"
-    }
-
-    if (heading === "Done") {
-      doneIds = doneIds.filter((id) => id !== taskId)
-      column = "doneIds"
-    }
-
-    this.setState({ tasksById, todoIds, doingIds, doneIds })
+    this.setState({ tasksById, [column]: columnIds })
     client.deleteTask(taskId, column)
   }
 
@@ -73,10 +58,41 @@ class TasksManager extends Component {
     client.updateTask(taskId, newTitle)
   }
 
+  handleDragEnd = (result) => {
+    const { destination, source, draggableId } = result
+    let sourceColumn = ""
+    let destinationColumn = ""
+
+    if (destination) {
+      sourceColumn = helpers.getColumn(source.droppableId)
+      destinationColumn = helpers.getColumn(destination.droppableId)
+    } else return
+
+    if (destinationColumn === sourceColumn &&
+        destination.index === source.index) return
+
+    if (destinationColumn === sourceColumn) {
+      const columnCopy = Array.from(this.state[sourceColumn])
+      columnCopy.splice(source.index, 1)
+      columnCopy.splice(destination.index, 0, draggableId)
+      return this.setState({ [sourceColumn]: columnCopy })
+    }
+
+    const sourceCopy = Array.from(this.state[sourceColumn])
+    sourceCopy.splice(source.index, 1)
+    const destinationCopy = Array.from(this.state[destinationColumn])
+    destinationCopy.splice(destination.index, 0, draggableId)
+
+    this.setState({
+      [sourceColumn]: sourceCopy,
+      [destinationColumn]: destinationCopy
+    })
+  }
+
   render() {
     const { todoList, doingList, doneList } = helpers.getLists(this.state)
     return (
-      <TasksDashboard onAdd={this.handleAdd} >
+      <TasksDashboard onAdd={this.handleAdd} onDragEnd={this.handleDragEnd} >
         <div>
           <Tasks 
             heading="To Do" 
