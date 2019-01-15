@@ -32,7 +32,7 @@ class TasksManager extends Component {
     todoIds.push(task.id)
 
     this.setState({ tasksById, todoIds })
-    // client.addTask(task)
+    client.addTask(task)
   }
 
   handleDelete = (taskId, heading) => {
@@ -41,18 +41,25 @@ class TasksManager extends Component {
         task.id !== taskId)
     const tasksById = helpers.createTasksObject(filteredTasks)
     let { todoIds, doingIds, doneIds } = this.state
+    let column = ""
 
-    if (heading === "To Do") 
+    if (heading === "To Do") {
       todoIds = todoIds.filter((id) => id !== taskId)
+      column = "todoIds"
+    }
 
-    if (heading === "Doing") 
+    if (heading === "Doing") {
       doingIds = doingIds.filter((id) => id !== taskId)
+      column = "doingIds"
+    }
 
-    if (heading === "Done")
+    if (heading === "Done") {
       doneIds = doneIds.filter((id) => id !== taskId)
+      column = "doneIds"
+    }
 
     this.setState({ tasksById, todoIds, doingIds, doneIds })
-    // client.deleteTask(taskId)
+    client.deleteTask(taskId, column)
   }
 
   handleSubmit = (taskId, newTitle) => {
@@ -66,8 +73,7 @@ class TasksManager extends Component {
     this.setState({ 
       tasksById: helpers.createTasksObject(tasks)
     })
-    
-    // client.updateTask(taskId, newTitle)
+    client.updateTask(taskId, newTitle)
   }
 
   render() {

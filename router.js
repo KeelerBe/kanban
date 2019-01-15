@@ -14,9 +14,12 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
   fs.readFile(DATA_FILE, (err, data) => {
     const { task } = req.body
-    const tasks = JSON.parse(data)
-    tasks.push(task)
-    fs.writeFile(DATA_FILE, JSON.stringify(tasks, null, 2), () => {
+    const kanban = JSON.parse(data)
+
+    kanban.tasksById[task.id] = task
+    kanban.todoIds.push(task.id)
+    
+    fs.writeFile(DATA_FILE, JSON.stringify(kanban, null, 2), () => {
       res.json({ success: 'New card added.' })
     })
   })
@@ -24,14 +27,13 @@ router.post('/', (req, res) => {
 
 router.put('/', (req, res) => {
   fs.readFile(DATA_FILE, (err, data) => {
-    const tasks = JSON.parse(data)
-    tasks.map((task) => {
-      if (task.id !== req.body.id) return task
-
-      task.title = req.body.title
-      return task
+    const kanban = JSON.parse(data)
+    Object.values(kanban.tasksById).forEach((task) => {
+      if (task.id === req.body.id) 
+        task.title = req.body.title
     })
-    fs.writeFile(DATA_FILE, JSON.stringify(tasks, null, 2), () => {
+
+    fs.writeFile(DATA_FILE, JSON.stringify(kanban, null, 2), () => {
       res.json({ success: 'Task updated.' })
     })
   })
@@ -39,9 +41,20 @@ router.put('/', (req, res) => {
 
 router.delete('/', (req, res) => {
   fs.readFile(DATA_FILE, (err, data) => {
-    const tasks = JSON.parse(data)
-    const filteredTasks = tasks.filter((task) => task.id !== req.body.id)
-    fs.writeFile(DATA_FILE, JSON.stringify(filteredTasks, null, 2), () => {
+    const kanban = JSON.parse(data)
+    const filteredTasks = 
+      Object.values(kanban.tasksById).filter((task) => 
+        task.id !== req.body.id)
+
+    const tasksById = {}
+    filteredTasks.forEach((task) => tasksById[task.id] = task)
+
+    const filteredColumn = kanban[req.body.column].filter((id) => id !== req.body.id)
+
+    kanban.tasksById = tasksById
+    kanban[req.body.column] = filteredColumn
+
+    fs.writeFile(DATA_FILE, JSON.stringify(kanban, null, 2), () => {
       res.json({ success: 'Task deleted.' })
     })
   })

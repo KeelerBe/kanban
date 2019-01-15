@@ -10,12 +10,15 @@ const getTasks = (onSuccess) => {
 const addTask = (task) => {
   axios.post('/api/tasks', { task })
     .then(checkStatus)
-    .catch(onError)
+    // .catch(onError)
 }
 
-const deleteTask = (taskId) => {
+const deleteTask = (taskId, column) => {
   axios.delete('/api/tasks', {
-    data: { id: taskId }
+    data: { 
+      id: taskId,
+      column 
+    }
   })
     .then(checkStatus)
     .catch(onError)
