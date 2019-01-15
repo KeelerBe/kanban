@@ -36,10 +36,11 @@ class TasksManager extends Component {
   }
 
   handleDelete = (taskId, heading) => {
-    const filteredTasks = 
-      Object.values(this.state.tasksById).filter((task) => 
-        task.id !== taskId)
-    const tasksById = helpers.createTasksObject(filteredTasks)
+    const tasksById = {}
+    Object.values(this.state.tasksById).forEach((task) => {
+      if (task.id !== taskId) tasksById[task.id] = task
+    })
+
     let { todoIds, doingIds, doneIds } = this.state
     let column = ""
 
@@ -63,16 +64,12 @@ class TasksManager extends Component {
   }
 
   handleSubmit = (taskId, newTitle) => {
-    const tasks = Object.values(this.state.tasksById).map((task) => {
-      if (task.id !== taskId) return task
-
-      task.title = newTitle
-			return task
+    const { tasksById } = this.state
+    Object.values(tasksById).forEach((task) => {
+        if (task.id === taskId) tasksById[task.id].title = newTitle
     })
 
-    this.setState({ 
-      tasksById: helpers.createTasksObject(tasks)
-    })
+    this.setState({ tasksById })
     client.updateTask(taskId, newTitle)
   }
 

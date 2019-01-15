@@ -42,12 +42,10 @@ router.put('/', (req, res) => {
 router.delete('/', (req, res) => {
   fs.readFile(DATA_FILE, (err, data) => {
     const kanban = JSON.parse(data)
-    const filteredTasks = 
-      Object.values(kanban.tasksById).filter((task) => 
-        task.id !== req.body.id)
-
     const tasksById = {}
-    filteredTasks.forEach((task) => tasksById[task.id] = task)
+    Object.values(kanban.tasksById).forEach((task) => {
+        if (task.id !== req.body.id) tasksById[task.id] = task
+    })
 
     const filteredColumn = kanban[req.body.column].filter((id) => id !== req.body.id)
 

@@ -4,13 +4,13 @@ const getTasks = (onSuccess) => {
   axios.get('/api/tasks')
     .then(checkStatus)
     .then((response) => onSuccess(response.data))
-    // .catch(onError)
+    .catch(onError)
 }
 
 const addTask = (task) => {
   axios.post('/api/tasks', { task })
     .then(checkStatus)
-    // .catch(onError)
+    .catch(onError)
 }
 
 const deleteTask = (taskId, column) => {

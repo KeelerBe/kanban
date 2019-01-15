@@ -21,20 +21,7 @@ const createTask = () => {
   return task
 }
 
-// const getTaskList = (tasksObj) => {
-//   const taskList = Object.values(tasksObj).map((task) => task)
-//   return taskList
-// }
-
-const createTasksObject = (tasksArray) => {
-  const tasksById = {}
-  tasksArray.forEach((task) => tasksById[task.id] = task)
-  return tasksById
-}
-
 export default {
   getLists,
-  createTask,
-  // getTaskList,
-  createTasksObject
+  createTask
 }
