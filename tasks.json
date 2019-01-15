@@ -38,5 +38,20 @@
     "id": "94aa97ab-61da-4e51-863a-23ae57e9a00a",
     "title": "Water plants",
     "status": "todo"
+  },
+  {
+    "id": "5c0ce6e0-c905-4f5b-bae8-1f60c3770c27",
+    "title": "setInterval",
+    "status": "todo"
+  },
+  {
+    "id": "9adc4090-58c5-41c6-a1aa-65e78188ab08",
+    "title": "Finish drag and drop",
+    "status": "todo"
+  },
+  {
+    "id": "8acc4e87-2a4f-4068-9993-c3b727e4aae2",
+    "title": "Deploy",
+    "status": "todo"
   }
 ]

@@ -13,7 +13,9 @@ const styles = {
 	}
 }
 
-const handleDragEnd = () => null
+const handleDragEnd = (result) => {
+	console.log(result)
+}
 
 const TasksDashboard = ({ classes, children, onAdd }) => 
 	<DragDropContext onDragEnd={handleDragEnd}>
