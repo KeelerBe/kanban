@@ -13,14 +13,14 @@ class TasksManager extends Component {
 	}
 
 	componentDidMount() {
+		this.loadTasksFromServer()
+		setInterval(this.loadTasksFromServer, 3000)
+	}
+
+	loadTasksFromServer = () => {
 		client.getTasks((tasks) => {
 			const { tasksById, todoIds, doingIds, doneIds } = tasks
-			this.setState({
-				tasksById,
-				todoIds,
-				doingIds,
-				doneIds
-			})
+			this.setState({ tasksById, todoIds, doingIds, doneIds })
 		})
 	}
 
