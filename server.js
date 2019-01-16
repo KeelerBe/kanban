@@ -11,6 +11,6 @@ const port = process.env.PORT || 8000
 app.use('/', express.static(path.join(__dirname, 'client')))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
-app.use('/api/tasks', router)
+app.use('/api', router)
 
 app.listen(port, () => console.log(`Listening on port ${port}...`.inverse))
