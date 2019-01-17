@@ -1,7 +1,6 @@
 const express = require('express')
 const fs = require('fs')
 const path = require('path')
-// const colors = require('colors')
 
 const router = express.Router()
 const DATA_FILE = path.join(__dirname, 'tasks.json')
