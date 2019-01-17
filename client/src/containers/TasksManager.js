@@ -14,7 +14,7 @@ class TasksManager extends Component {
 
 	componentDidMount() {
 		this.loadTasksFromServer()
-		setInterval(this.loadTasksFromServer, 3000)
+		setInterval(this.loadTasksFromServer, 5000)
 	}
 
 	loadTasksFromServer = () => {
@@ -73,13 +73,13 @@ class TasksManager extends Component {
 		if (
 			destinationKey === sourceKey &&
 			destination.index === source.index
-		)
-			return
+		) return
 
     const sourceCopy = Array.from(this.state[sourceKey])
-    const destinationCopy = sourceKey !== destinationKey 
-      ? Array.from(this.state[destinationKey])
-      : sourceCopy
+		const destinationCopy = 
+			sourceKey !== destinationKey 
+				? Array.from(this.state[destinationKey])
+				: sourceCopy
     
     sourceCopy.splice(source.index, 1)
     destinationCopy.splice(destination.index, 0, draggableId)

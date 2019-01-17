@@ -1,7 +1,7 @@
 const express = require('express')
 const fs = require('fs')
 const path = require('path')
-const colors = require('colors')
+// const colors = require('colors')
 
 const router = express.Router()
 const DATA_FILE = path.join(__dirname, 'tasks.json')
@@ -51,17 +51,18 @@ router.put('/lists', (req, res) => {
 		} = req.body
 
     const source = kanban[sourceKey]
-    const destination = sourceKey !== destinationKey
-      ? kanban[destinationKey]
-      : source
+		const destination = 
+			sourceKey !== destinationKey
+				? kanban[destinationKey]
+				: source
     
     source.splice(sourceIndex, 1)
     destination.splice(destinationIndex, 0, taskId)
 
-    kanban[source] = source
+    kanban[sourceKey] = source
     
     if (sourceKey !== destinationKey)
-      kanban[destination] = destination
+      kanban[destinationKey] = destination
 
     fs.writeFile(DATA_FILE, JSON.stringify(kanban, null, 2), () => {
       res.json({ success: 'Lists updated' })
