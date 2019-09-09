@@ -1,19 +1,35 @@
 {
   "tasksById": {
-    "1bfc7c2b-5df9-4123-953d-488f702c90dd": {
-      "id": "1bfc7c2b-5df9-4123-953d-488f702c90dd",
-      "title": "something"
+    "d7455070-84d0-45a9-8b1b-82bb8b6a0e19": {
+      "id": "d7455070-84d0-45a9-8b1b-82bb8b6a0e19",
+      "title": "Walk doggo"
     },
-    "e180a700-9b8b-4df3-a46c-359a1d446768": {
-      "id": "e180a700-9b8b-4df3-a46c-359a1d446768",
-      "title": ""
+    "fddd3242-7e48-4466-bd87-3cf04f87d885": {
+      "id": "fddd3242-7e48-4466-bd87-3cf04f87d885",
+      "title": "Bury evidence"
+    },
+    "736a2e60-be24-4d62-98b4-dc671b100065": {
+      "id": "736a2e60-be24-4d62-98b4-dc671b100065",
+      "title": "Recruit neighbour"
+    },
+    "5b9ad049-68bf-469e-b511-ab16ee35bfbc": {
+      "id": "5b9ad049-68bf-469e-b511-ab16ee35bfbc",
+      "title": "Eat a banana"
+    },
+    "cb37df07-9449-443a-bbe4-2d0d05709575": {
+      "id": "cb37df07-9449-443a-bbe4-2d0d05709575",
+      "title": "Watch footy"
     }
   },
   "todoIds": [
-    "e180a700-9b8b-4df3-a46c-359a1d446768"
+    "d7455070-84d0-45a9-8b1b-82bb8b6a0e19",
+    "fddd3242-7e48-4466-bd87-3cf04f87d885",
+    "736a2e60-be24-4d62-98b4-dc671b100065"
   ],
-  "doingIds": [],
+  "doingIds": [
+    "5b9ad049-68bf-469e-b511-ab16ee35bfbc"
+  ],
   "doneIds": [
-    "1bfc7c2b-5df9-4123-953d-488f702c90dd"
+    "cb37df07-9449-443a-bbe4-2d0d05709575"
   ]
 }
