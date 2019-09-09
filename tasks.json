@@ -1,6 +1,19 @@
 {
-  "tasksById": {},
-  "todoIds": [],
+  "tasksById": {
+    "1bfc7c2b-5df9-4123-953d-488f702c90dd": {
+      "id": "1bfc7c2b-5df9-4123-953d-488f702c90dd",
+      "title": "something"
+    },
+    "e180a700-9b8b-4df3-a46c-359a1d446768": {
+      "id": "e180a700-9b8b-4df3-a46c-359a1d446768",
+      "title": ""
+    }
+  },
+  "todoIds": [
+    "e180a700-9b8b-4df3-a46c-359a1d446768"
+  ],
   "doingIds": [],
-  "doneIds": []
+  "doneIds": [
+    "1bfc7c2b-5df9-4123-953d-488f702c90dd"
+  ]
 }

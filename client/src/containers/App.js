@@ -1,12 +1,6 @@
-import React, { Component } from 'react'
+import React from 'react'
 import TasksManager from './TasksManager'
-// import Test from './Test'
 
-class App extends Component {
-  render() {
-    return <TasksManager/>
-    // return <Test/>
-  }
-}
+const App = () => <TasksManager/>
 
 export default App

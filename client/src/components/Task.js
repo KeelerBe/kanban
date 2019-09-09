@@ -31,6 +31,7 @@ const Task = ({ task, index, onDelete, onSubmit }) =>
 
 Task.propTypes = {
 	task: PropTypes.object.isRequired,
+	index: PropTypes.number.isRequired,
 	onDelete: PropTypes.func.isRequired,
 	onSubmit: PropTypes.func.isRequired
 }

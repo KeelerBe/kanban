@@ -48,7 +48,6 @@ TaskInput.propTypes = {
     title: PropTypes.string.isRequired
   }).isRequired,
   onSubmit: PropTypes.func.isRequired
-
 }
 
 export default TaskInput
