@@ -1,18 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Draggable } from 'react-beautiful-dnd'
-// import StatusButton from './StatusButton'
 import TaskInput from './TaskInput'
-
-const DeleteButton = ({ onDelete }) => 
-	<span onClick={onDelete}>
-    <i className="fas fa-times-circle" />
-	</span>
-
-const StatusButton = ({ onStatus }) => 
-	<span onClick={onStatus}>
-		<i className="fas fa-chevron-circle-down" />
-	</span>
 
 const Task = ({ task, index, onDelete, onSubmit }) => 
 	<Draggable 
@@ -46,3 +35,13 @@ Task.propTypes = {
 }
 
 export default Task
+
+const DeleteButton = ({ onDelete }) => 
+	<span onClick={onDelete}>
+    <i className="fas fa-times-circle hvr-grow" />
+	</span>
+
+const StatusButton = ({ onStatus }) => 
+	<span onClick={onStatus}>
+		<i className="fas fa-chevron-circle-down hvr-grow" />
+	</span>
