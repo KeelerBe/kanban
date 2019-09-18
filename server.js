@@ -1,6 +1,7 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const path = require('path')
+require('colors')
 const router = require('./router')
 
 const app = express()
@@ -19,8 +20,8 @@ if (process.env.NODE_ENV === 'production') {
   })
 }
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname+'/client/public/index.html'))
+app.get('/', (req, res) => {
+  res.send({ app: 'kanban' })
 })
 
-app.listen(port, () => console.log(`Listening on port ${port}...`))
+app.listen(port, () => console.log(`Listening on port ${port}...` .bgRed))
