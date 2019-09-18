@@ -19,6 +19,7 @@ const TasksDashboard = ({ classes, children, onAdd, onDragEnd }) =>
 			<span className={classes.addButton}>
 				<i className="fas fa-plus" onClick={onAdd} />
 			</span>
+			<a href="/auth/google">Sign up</a>
 			{children}
 		</div>
 	</DragDropContext>

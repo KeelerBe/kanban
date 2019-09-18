@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import TasksDashboard from '../components/TasksDashboard'
-import Tasks from '../components/Tasks'
-import helpers from '../utils/helpers'
-import client from '../utils/client'
+import TasksDashboard from './TasksDashboard'
+import Tasks from './Tasks'
+import helpers from './utils/helpers'
+import client from './utils/client'
 
 class TasksManager extends Component {
 	state = {

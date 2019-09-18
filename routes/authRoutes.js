@@ -6,9 +6,9 @@ module.exports = (app) => {
   ))
 
   app.get('/auth/google/callback', passport.authenticate('google',
-    { failureRedirect: '/login' },
+    { failureRedirect: '/login' }),
     (req, res) => res.redirect('/') 
-  ))
+  )
 
   app.get('/logout', (req, res) => {
     req.logout()

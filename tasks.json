@@ -1,9 +1,5 @@
 {
   "tasksById": {
-    "d7455070-84d0-45a9-8b1b-82bb8b6a0e19": {
-      "id": "d7455070-84d0-45a9-8b1b-82bb8b6a0e19",
-      "title": "Walk doggo"
-    },
     "fddd3242-7e48-4466-bd87-3cf04f87d885": {
       "id": "fddd3242-7e48-4466-bd87-3cf04f87d885",
       "title": "Bury evidence"
@@ -19,10 +15,18 @@
     "cb37df07-9449-443a-bbe4-2d0d05709575": {
       "id": "cb37df07-9449-443a-bbe4-2d0d05709575",
       "title": "Watch footy"
+    },
+    "bab82b2a-80a7-440d-96f4-60da855b021b": {
+      "id": "bab82b2a-80a7-440d-96f4-60da855b021b",
+      "title": "Walk doggo"
+    },
+    "e1e548a7-a6cc-45ba-a491-9bdf74f86718": {
+      "id": "e1e548a7-a6cc-45ba-a491-9bdf74f86718",
+      "title": "Water plants"
     }
   },
   "todoIds": [
-    "d7455070-84d0-45a9-8b1b-82bb8b6a0e19",
+    "bab82b2a-80a7-440d-96f4-60da855b021b",
     "fddd3242-7e48-4466-bd87-3cf04f87d885",
     "736a2e60-be24-4d62-98b4-dc671b100065"
   ],
@@ -30,6 +34,7 @@
     "5b9ad049-68bf-469e-b511-ab16ee35bfbc"
   ],
   "doneIds": [
-    "cb37df07-9449-443a-bbe4-2d0d05709575"
+    "cb37df07-9449-443a-bbe4-2d0d05709575",
+    "e1e548a7-a6cc-45ba-a491-9bdf74f86718"
   ]
 }
