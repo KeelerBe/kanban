@@ -9,7 +9,7 @@ const TasksDashboard = ({ children, onAdd, onDragEnd }) =>
 			<span className="addButton">
 				<i className="fas fa-plus" onClick={onAdd} />
 			</span>
-			<a href="/auth/google">Sign up</a>
+			<a href="/auth/google">Hello Jane!</a>
 			{children}
 		</div>
 	</DragDropContext>
